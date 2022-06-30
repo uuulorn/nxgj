@@ -1,0 +1,10 @@
+node_modules
+output
+*output
+output*
+*.js
+*.7z
+*.png
+*.txt
+*.NPK
+*.IMG
