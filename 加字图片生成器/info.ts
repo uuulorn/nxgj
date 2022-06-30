@@ -1,5 +1,5 @@
 import { MarkOption } from './type'
-export const giOpt = {
+export const giOpt: MarkOption = {
     placement: {//部位
         'cloth_belt.img': { text: '腰', color: 'black' }, //全等匹配子目录名 //text为单字
         'cloth_coat.img': { text: '衫', color: 'black' },
@@ -198,6 +198,7 @@ export const giOpt = {
             293: { text: '果汁核心', color: 'blue' },
             295: { text: '破极兵刃', color: 'red' },
             296: { text: '流星一条', color: 'purple' },
+            298: { text: '技等属强', color: 'blue' }
         },
         'necklace.img': {
             281: { text: '灼烧火强', color: 'blue' },
@@ -213,7 +214,7 @@ export const giOpt = {
             293: { text: '手搓特化', color: 'red' },
             294: { text: '自击暗强', color: 'blue' },
             295: { text: '自击火强', color: 'blue' },
-            298: { text: '技等属强', color: 'blue' },
+            298: { text: 'MP属强', color: 'blue' },
             299: { text: '弱点技攻', color: 'blue' },
             300: { text: '无视防御', color: 'red' },
             302: { text: '金币增伤', color: 'red' },
@@ -264,7 +265,7 @@ export const giOpt = {
         },
         'magicstone.img': {
             299: { text: '被击转化', color: 'purple' },
-            300: { text: '破招强化', color: 'blue' },
+            300: { text: '破招强化', color: 'red' },
             301: { text: '附魔翻倍', color: 'red' },
             303: { text: '异常抗性', color: 'purple' },
             304: { text: '小招特化', color: 'red' },
@@ -305,7 +306,9 @@ export const giOpt = {
             121: { text: '反击眩晕', color: 'purple' },
         },
     },
-    inputPath: '../output',//输入目录路径
+    inputPath: 'J:/npk实验场/blackcat.1.3/output/a_改装备图标.NPK',//输入目录路径
     outputPath: './output',//输出目录路径
-    tagFillRectColor: 'white'//非空则在添加标签时,先填充一次值指定的颜色
-} as MarkOption
+    //tagFillRectColor: 'white',//非空则在添加标签时,先填充一次值指定的颜色
+    placementMark: false,//指定是否为标签列表内的图片添加部位名
+    placementMarkOther: false//指定是否为标签列表外的图片添加部位名
+}

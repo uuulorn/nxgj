@@ -70,6 +70,8 @@ export async function run() {
     ) {
         throw new Error(`输(出)入目录不能是输(入)出目录的子目录!`)
     }
+    const flag0 = giOpt.placementMark
+    const flag1 = giOpt.placementMarkOther
     const r0 = /\.img$/i
     const r1 = /^\d+\.png$/i
     const imgDirs = fs.readdirSync(pRes(__dirname, giOpt.inputPath), { withFileTypes: true })
@@ -79,7 +81,7 @@ export async function run() {
     }
     for (const cdir of imgDirs) {
         const u = giOpt.tag[cdir.name]
-        const v = giOpt.placement?.[cdir.name]
+        const v = giOpt.placement[cdir.name]
         if (u) {
             for (const img of fs.readdirSync(
                 pRes(__dirname, giOpt.inputPath, cdir.name), { withFileTypes: true }
@@ -95,10 +97,16 @@ export async function run() {
                     cv = await drawTag(cv, imgInfo.text, imgInfo.color, giOpt.tagFillRectColor)
                 }
                 if (v) {
-                    if (!imgInfo) {
-                        alphaMultiply(cv, 0.8)
+                    if (imgInfo) {
+                        if (flag0) {
+                            cv = await drawPlacement(cv, v.text, v.color)
+                        }
+                    } else {
+                        if (flag1) {
+                            alphaMultiply(cv, 0.8)
+                            cv = await drawPlacement(cv, v.text, v.color)
+                        }
                     }
-                    cv = await drawPlacement(cv, v.text, v.color)
                 }
                 const buf = await canvasToBuffer(cv)
                 const od = pRes(__dirname, giOpt.outputPath, cdir.name)
@@ -111,10 +119,10 @@ export async function run() {
     }
 }
 
-function alphaMultiply(cv: canvas.Canvas, a: number): void {
+function alphaMultiply(cv: canvas.Canvas, n: number): void {
     const dt = cv.getContext('2d').getImageData(0, 0, 28, 28).data
     for (let i = 3; i < dt.length; i += 4) {
-        dt[i] *= a
+        dt[i] *= n
     }
     cv.getContext('2d').putImageData(canvas.createImageData(dt, 28, 28), 0, 0)
 }

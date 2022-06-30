@@ -1,6 +1,6 @@
 type ChildPath = string
 export type MarkOption = {
-    placement?: Record<ChildPath, { text: string, color: string } | void>
+    placement: Record<ChildPath, { text: string, color: string } | void>
     tag:
     Record<ChildPath,
         Record<string, {
@@ -11,4 +11,6 @@ export type MarkOption = {
     tagFillRectColor?: string
     inputPath: string
     outputPath: string
+    placementMark: boolean
+    placementMarkOther: boolean
 }
