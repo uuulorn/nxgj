@@ -70,7 +70,7 @@ async function main3() {
     await toNPK('./outputImgs')
 }
 
-main()
+//main()
 
 async function draw(img: canvas.Image, text: string, outputPaths: [string, string]) {
     return new Promise((resolve) => {

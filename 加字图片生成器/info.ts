@@ -156,10 +156,10 @@ export const giOpt = {
             91: { text: '感电增攻', color: 'blue' },
         },
         'plate_coat.img': {
-            87: { text: '变大回复', color: 'purple' },
-            88: { text: '全属属强', color: 'blue' },
-            90: { text: '芜湖起飞', color: 'purple' },
-            91: { text: '无敌速度', color: 'purple' },
+            96: { text: '变大回复', color: 'purple' },
+            97: { text: '全属属强', color: 'blue' },
+            99: { text: '芜湖起飞', color: 'purple' },
+            100: { text: '无敌速度', color: 'purple' },
         },
         'plate_neck.img': {
             88: { text: '石化伤害', color: 'blue' },
