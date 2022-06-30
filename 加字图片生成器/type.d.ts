@@ -8,7 +8,7 @@ export type MarkOption = {
         } | void>
         | void
     >
-    fillRectColor?: string
+    tagFillRectColor?: string
     inputPath: string
     outputPath: string
 }

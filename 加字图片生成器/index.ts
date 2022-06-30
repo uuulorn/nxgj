@@ -1,7 +1,7 @@
 import fs from 'fs'
 import canvas from 'canvas'
 import { resolve as pRes } from 'path'
-import { option as OPT } from './info'
+import { giOpt } from './info'
 
 async function drawTag(cv: canvas.Canvas, text: string, color: string, fillRectColor?: string): Promise<canvas.Canvas> {
     if (text.length !== 4) {
@@ -16,8 +16,11 @@ async function drawTag(cv: canvas.Canvas, text: string, color: string, fillRectC
     }
     ctx.fillStyle = color
     ctx.font = `bolder bolder 12px Arial,sans-serif`
-    ctx.fillText(text.slice(0, 2), 2, 12)
-    ctx.fillText(text.slice(2), 2, 24)
+    //加粗，要错位fillText两次
+    ctx.fillText(text.slice(0, 2), 2 - 0.5, 12)
+    ctx.fillText(text.slice(0, 2), 2, 12 - 0.5)
+    ctx.fillText(text.slice(2), 2 - 0.5, 24)
+    ctx.fillText(text.slice(2), 2, 24 - 0.5)
     ctx.restore()
     return cv
 }
@@ -29,8 +32,7 @@ async function drawPlacement(cv0: canvas.Canvas, text: string, color: string): P
     const cv1 = canvas.createCanvas(28, 28)
     const ctx1 = cv1.getContext('2d')
     ctx1.save()
-    ctx1.clearRect(0, 0, 28, 28)
-    ctx1.fillStyle = '#fff'
+    ctx1.fillStyle = '#000'
     ctx1.fillRect(0, 0, 28, 28)
     ctx1.drawImage(cv0, 0, 0)
     ctx1.fillStyle = color
@@ -63,48 +65,56 @@ async function getImage(p: string): Promise<canvas.Image> {
 
 export async function run() {
     if (
-        pRes(__dirname, OPT.inputPath).includes(pRes(__dirname, OPT.outputPath)) ||
-        pRes(__dirname, OPT.outputPath).includes(pRes(__dirname, OPT.inputPath))
+        pRes(__dirname, giOpt.inputPath).includes(pRes(__dirname, giOpt.outputPath)) ||
+        pRes(__dirname, giOpt.outputPath).includes(pRes(__dirname, giOpt.inputPath))
     ) {
         throw new Error(`输(出)入目录不能是输(入)出目录的子目录!`)
     }
     const r0 = /\.img$/i
     const r1 = /^\d+\.png$/i
-    const imgDirs = fs.readdirSync(pRes(__dirname, OPT.inputPath), { withFileTypes: true })
+    const imgDirs = fs.readdirSync(pRes(__dirname, giOpt.inputPath), { withFileTypes: true })
         .filter(x => x.isDirectory() && r0.test(x.name))
     if (!imgDirs.length) {
         throw new Error(`没有找到名字以.img结尾的文件夹!`)
     }
     for (const cdir of imgDirs) {
-        const u = OPT.tag[cdir.name]
-        const v = OPT.placement?.[cdir.name]
+        const u = giOpt.tag[cdir.name]
+        const v = giOpt.placement?.[cdir.name]
         if (u) {
             for (const img of fs.readdirSync(
-                pRes(__dirname, OPT.inputPath, cdir.name), { withFileTypes: true }
+                pRes(__dirname, giOpt.inputPath, cdir.name), { withFileTypes: true }
             )
                 .filter(x => x.isFile() && r1.test(x.name))
             ) {
                 const key = img.name.slice(0, img.name.indexOf('.'))
                 const imgInfo = u[key]
+                let cv = canvas.createCanvas(28, 28)
+                const eim = await getImage(pRes(__dirname, giOpt.inputPath, cdir.name, img.name))
+                cv.getContext('2d').drawImage(eim, 0, 0)
                 if (imgInfo) {
-                    const tcv = canvas.createCanvas(28, 28)
-                    tcv.getContext('2d').drawImage(
-                        await getImage(pRes(__dirname, OPT.inputPath, cdir.name, img.name)),
-                        0,
-                        0
-                    )
-                    let cv = await drawTag(tcv, imgInfo.text, imgInfo.color, OPT.fillRectColor)
-                    if (v) {
-                        cv = await drawPlacement(cv, v.text, v.color)
-                    }
-                    const buf = await canvasToBuffer(cv)
-                    const od = pRes(__dirname, OPT.outputPath, cdir.name)
-                    if (!fs.existsSync(od)) {
-                        fs.mkdirSync(od, { recursive: true })
-                    }
-                    await fs.promises.writeFile(pRes(__dirname, od, img.name), buf)
+                    cv = await drawTag(cv, imgInfo.text, imgInfo.color, giOpt.tagFillRectColor)
                 }
+                if (v) {
+                    if (!imgInfo) {
+                        alphaMultiply(cv, 0.6)
+                    }
+                    cv = await drawPlacement(cv, v.text, v.color)
+                }
+                const buf = await canvasToBuffer(cv)
+                const od = pRes(__dirname, giOpt.outputPath, cdir.name)
+                if (!fs.existsSync(od)) {
+                    fs.mkdirSync(od, { recursive: true })
+                }
+                await fs.promises.writeFile(pRes(__dirname, od, img.name), buf)
             }
         }
     }
+}
+
+function alphaMultiply(cv: canvas.Canvas, a: number): void {
+    const dt = cv.getContext('2d').getImageData(0, 0, 28, 28).data
+    for (let i = 3; i < dt.length; i += 4) {
+        dt[i] *= a
+    }
+    cv.getContext('2d').putImageData(canvas.createImageData(dt, 28, 28), 0, 0)
 }

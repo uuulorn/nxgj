@@ -1,7 +1,7 @@
 import { PackNPKOption } from './type';
 
 export const pnOpt: PackNPKOption = {
-    inputPath: '../output',//输入目录,其子目录应为包含^\d+\.png$文件名的png图片的,以.img结尾的目录
+    inputPath: '../加字图片生成器/output',//输入目录,其子目录应为包含^\d+\.png$文件名的png图片的,以.img结尾的目录
     outputPath: './output/a_更改装备图标.NPK',//npk文件输出路径
     pathInNPKRecord: {
         'cloth_belt.img': 'sprite/item/new_equipment/02_cloth/belt/cloth_belt.img',
@@ -36,5 +36,5 @@ export const pnOpt: PackNPKOption = {
         'magicstone.img': 'sprite/item/new_equipment/11_magicstone/magicstone.img',
         'earrring.img': 'sprite/item/new_equipment/13_earrring/earrring.img',
     },//img文件名对应的img在npk内的路径
-    colorSpaceType: 'argb1555' //颜色类型
+    colorSpaceType: 'argb8888' //颜色类型
 }
