@@ -86,8 +86,8 @@ export async function run() {
             )
                 .filter(x => x.isFile() && r1.test(x.name))
             ) {
-                const key = img.name.slice(0, img.name.indexOf('.'))
-                const imgInfo = u[key]
+                const index = img.name.slice(0, img.name.indexOf('.'))
+                const imgInfo = u[index]
                 let cv = canvas.createCanvas(28, 28)
                 const eim = await getImage(pRes(__dirname, giOpt.inputPath, cdir.name, img.name))
                 cv.getContext('2d').drawImage(eim, 0, 0)
@@ -96,7 +96,7 @@ export async function run() {
                 }
                 if (v) {
                     if (!imgInfo) {
-                        alphaMultiply(cv, 0.6)
+                        alphaMultiply(cv, 0.8)
                     }
                     cv = await drawPlacement(cv, v.text, v.color)
                 }
