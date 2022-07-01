@@ -2,6 +2,9 @@ node_modules
 output
 *output
 output*
+input
+*input
+input*
 *.js
 *.7z
 *.png
