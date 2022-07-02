@@ -1,10 +1,10 @@
 import fs from 'fs'
 import { resolve as pRes, dirname } from 'path'
-import { pnOpt } from './info'
-import { NPKStuff, PicBuffer } from './type'
+import { NPKStuff, PicBuffer, PackNPKOption } from './type'
 import { createHash } from 'crypto'
 import canvas from 'canvas'
 import { deflateSync } from 'zlib'
+import { pnOpts } from './info'
 
 //|BBBBBBBB|GGGGGGGG|RRRRRRRR|AAAAAAAA|
 function rgbaToArgb8888LE(data: Uint8ClampedArray): Uint8ClampedArray {
@@ -47,17 +47,17 @@ function rgbaToArgb4444LE(data: Uint8ClampedArray): Uint8ClampedArray {
     return res
 }
 
-async function toImg(pin: string, stuffs: PicBuffer[]): Promise<NPKStuff> {
+async function toImg(pin: string, stuffs: PicBuffer[], pnOpt: PackNPKOption): Promise<NPKStuff> {
     const cv = canvas.createCanvas(28, 28)
     const ctx = cv.getContext('2d')
-    const { colorSpaceType: picType } = pnOpt
+    const { colorSpaceType } = pnOpt
     stuffs = await Promise.all(
         stuffs.map(async stuff => {
             ctx.clearRect(0, 0, 28, 28)
             ctx.drawImage(await canvas.loadImage(stuff), 0, 0, 28, 28)
             return deflateSync(
                 (function () {
-                    switch (picType) {
+                    switch (colorSpaceType) {
                         case 'argb8888': return rgbaToArgb8888LE(ctx.getImageData(0, 0, 28, 28).data)
                         case 'argb4444': return rgbaToArgb4444LE(ctx.getImageData(0, 0, 28, 28).data)
                         case 'argb1555': return rgbaToArgb1555LE(ctx.getImageData(0, 0, 28, 28).data)
@@ -81,7 +81,7 @@ async function toImg(pin: string, stuffs: PicBuffer[]): Promise<NPKStuff> {
     pos += 4
 
     const pt = (function () {
-        switch (pnOpt.colorSpaceType) {
+        switch (colorSpaceType) {
             case 'argb1555': return 0x0e
             case 'argb4444': return 0x0f
             case 'argb8888': return 0x10
@@ -160,39 +160,61 @@ function bufferXor(a: Buffer, b: Buffer) {
 }
 
 export async function run() {
-    if (pnOpt.outputPath.slice(-4) !== '.NPK') {
-        console.log(`提示:输出文件名[${pnOpt.outputPath}]没有以.NPK结尾`)
-    }
     const r0 = /\.img$/i
     const r1 = /^\d+\.png$/i
-    const picDirs = fs.readdirSync(pRes(__dirname, pnOpt.inputPath), { withFileTypes: true }).filter(x => x.isDirectory() && r0.test(x.name))
-    const stuffs: NPKStuff[] = []
-    for (const picDir of picDirs) {
-        const pin = pnOpt.pathInNPKRecord[picDir.name]
-        if (!pin) {
-            throw new Error(`没有找到${picDir.name}对应的npk内的img路径,请修改配置文件!`)
+    for (const pnOpt of pnOpts) {
+        if (
+            pRes(__dirname, pnOpt.inputPath).includes(pRes(__dirname, pnOpt.outputPath)) ||
+            pRes(__dirname, pnOpt.outputPath).includes(pRes(__dirname, pnOpt.inputPath))
+        ) {
+            throw new Error(`输(出)入目录不能是输(入)出目录的子目录!`)
         }
-        const pics = fs.readdirSync(pRes(__dirname, pnOpt.inputPath, picDir.name), { withFileTypes: true }).filter(x => x.isFile() && r1.test(x.name)).sort((a, b) => {
-            const an = +a.name.slice(0, a.name.indexOf('.'))
-            const bn = +b.name.slice(0, b.name.indexOf('.'))
-            return an - bn
-        })
-        stuffs.push(await toImg(
-            pin,
-            await Promise.all(pics.map(
-                pic => fs.promises.readFile(pRes(
-                    __dirname,
-                    pnOpt.inputPath,
-                    picDir.name,
-                    pic.name
-                ))
+        if (pnOpt.outputPath.slice(-4) !== '.NPK') {
+            console.log(`提示:输出文件名[${pnOpt.outputPath}]没有以.NPK结尾`)
+        }
+        const picDirs = fs.readdirSync(pRes(__dirname, pnOpt.inputPath), { withFileTypes: true }).filter(x => x.isDirectory() && r0.test(x.name))
+        const stuffs: NPKStuff[] = []
+        const pinRcJson: null | Record<string, string | void> = (function () {
+            if (pnOpt.usePinJsonFile) {
+                const jp = pRes(__dirname, pnOpt.inputPath, 'pathInNpk.json')
+                if (fs.existsSync(jp)) {
+                    return JSON.parse(fs.readFileSync(jp).toString())
+                } else {
+                    return null
+                }
+            } else {
+                return null
+            }
+        })()
+
+        for (const picDir of picDirs) {
+            const pin = pinRcJson?.[picDir.name] ?? pnOpt.pathInNPKRecord[picDir.name]
+            if (!pin) {
+                throw new Error(`没有找到${picDir.name}对应的npk内的img路径,请修改配置文件!`)
+            }
+            const pics = fs.readdirSync(pRes(__dirname, pnOpt.inputPath, picDir.name), { withFileTypes: true }).filter(x => x.isFile() && r1.test(x.name)).sort((a, b) => {
+                const an = +a.name.slice(0, a.name.indexOf('.'))
+                const bn = +b.name.slice(0, b.name.indexOf('.'))
+                return an - bn
+            })
+            stuffs.push(await toImg(
+                pin,
+                await Promise.all(pics.map(
+                    pic => fs.promises.readFile(pRes(
+                        __dirname,
+                        pnOpt.inputPath,
+                        picDir.name,
+                        pic.name
+                    ))
+                )),
+                pnOpt
             ))
-        ))
+        }
+        const tPath = pRes(__dirname, pnOpt.outputPath)
+        const prPath = dirname(tPath)
+        if (!fs.existsSync(prPath)) {
+            fs.mkdirSync(prPath, { recursive: true })
+        }
+        await fs.promises.writeFile(tPath, await toNPK(stuffs))
     }
-    const tPath = pRes(__dirname, pnOpt.outputPath)
-    const prPath = dirname(tPath)
-    if (!fs.existsSync(prPath)) {
-        fs.mkdirSync(prPath, { recursive: true })
-    }
-    await fs.promises.writeFile(tPath, await toNPK(stuffs))
 }

@@ -1,4 +1,10 @@
 import { MarkOption } from './type'
+import { readFileSync } from 'fs';
+import { resolve } from 'path';
+
+export const giOpt: MarkOption = JSON.parse(readFileSync(resolve(__dirname, 'info.json')).toString())
+
+/*
 export const giOpt: MarkOption = {
     placement: {//部位
         'cloth_belt.img': { text: '腰', color: 'black' }, //全等匹配子目录名 //text为单字
@@ -117,12 +123,12 @@ export const giOpt: MarkOption = {
             105: { text: '中毒伤害', color: 'blue' },
             106: { text: '滞空暴击', color: 'purple' },
             107: { text: '手搓技攻', color: 'red' },
-            108: { text: '冷却自电', color: 'blue' },
+            108: { text: '装备回血', color: 'purple' },
         },
         'leather_belt.img': {
-            88: { text: '失明特效', color: 'blue' },
-            89: { text: '中毒伤害', color: 'blue' },
-            90: { text: '滞空暴击', color: 'purple' },
+            88: { text: '光强特效', color: 'blue' },
+            89: { text: '小技技攻', color: 'red' },
+            90: { text: '不动如山', color: 'purple' },
             91: { text: '手搓技攻', color: 'red' },
         },
         'leather_coat.img': {
@@ -311,4 +317,4 @@ export const giOpt: MarkOption = {
     //tagFillRectColor: 'white',//非空则在添加标签时,先填充一次值指定的颜色
     placementMark: false,//指定是否为标签列表内的图片添加部位名
     placementMarkOther: false//指定是否为标签列表外的图片添加部位名
-}
+}*/

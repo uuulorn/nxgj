@@ -27,4 +27,4 @@ export type PicInnerInfo = {
     type: 1
 } | { index: number, linkTo: number, type: 2 }
 
-export type pathInNPKRecord = Record<string, string | void>
+export type pathInNPKList = Record<string, string | void>
