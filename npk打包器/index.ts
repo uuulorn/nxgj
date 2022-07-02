@@ -48,19 +48,22 @@ function rgbaToArgb4444LE(data: Uint8ClampedArray): Uint8ClampedArray {
 }
 
 async function toImg(pin: string, stuffs: PicBuffer[], pnOpt: PackNPKOption): Promise<NPKStuff> {
-    const cv = canvas.createCanvas(28, 28)
-    const ctx = cv.getContext('2d')
     const { colorSpaceType } = pnOpt
+    const imgAreas: { height: number, width: number }[] = []
     stuffs = await Promise.all(
         stuffs.map(async stuff => {
-            ctx.clearRect(0, 0, 28, 28)
-            ctx.drawImage(await canvas.loadImage(stuff), 0, 0, 28, 28)
+            const img = await canvas.loadImage(stuff)
+            imgAreas.push({ width: img.naturalWidth, height: img.naturalHeight })
+
+            const cv = canvas.createCanvas(img.naturalWidth, img.naturalHeight)
+            const ctx = cv.getContext('2d')
+            ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
             return deflateSync(
                 (function () {
                     switch (colorSpaceType) {
-                        case 'argb8888': return rgbaToArgb8888LE(ctx.getImageData(0, 0, 28, 28).data)
-                        case 'argb4444': return rgbaToArgb4444LE(ctx.getImageData(0, 0, 28, 28).data)
-                        case 'argb1555': return rgbaToArgb1555LE(ctx.getImageData(0, 0, 28, 28).data)
+                        case 'argb8888': return rgbaToArgb8888LE(ctx.getImageData(0, 0, img.naturalWidth, img.naturalHeight).data)
+                        case 'argb4444': return rgbaToArgb4444LE(ctx.getImageData(0, 0, img.naturalWidth, img.naturalHeight).data)
+                        case 'argb1555': return rgbaToArgb1555LE(ctx.getImageData(0, 0, img.naturalWidth, img.naturalHeight).data)
                     }
                 })()
             )
@@ -87,14 +90,15 @@ async function toImg(pin: string, stuffs: PicBuffer[], pnOpt: PackNPKOption): Pr
             case 'argb8888': return 0x10
         }
     })()
+    let i = 0
     for (const stuff of stuffs) {
         buf.writeIntLE(pt, pos, 4)
         pos += 4
         buf.writeIntLE(0x06, pos, 4)
         pos += 4
-        buf.writeIntLE(28, pos, 4)
+        buf.writeIntLE(imgAreas[i].width, pos, 4)
         pos += 4
-        buf.writeIntLE(28, pos, 4)
+        buf.writeIntLE(imgAreas[i].height, pos, 4)
         pos += 4
         buf.writeIntLE(stuff.length, pos, 4)
         pos += 4
@@ -102,10 +106,11 @@ async function toImg(pin: string, stuffs: PicBuffer[], pnOpt: PackNPKOption): Pr
         pos += 4
         buf.writeIntLE(0, pos, 4)
         pos += 4
-        buf.writeIntLE(28, pos, 4)
+        buf.writeIntLE(imgAreas[i].width, pos, 4)
         pos += 4
-        buf.writeIntLE(28, pos, 4)
+        buf.writeIntLE(imgAreas[i].height, pos, 4)
         pos += 4
+        i++
     }
     for (const stuff of stuffs) {
         stuff.copy(buf, pos)
