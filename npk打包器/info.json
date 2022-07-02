@@ -3,7 +3,6 @@
 		"inputPath": "../加字图片生成器/output",
 		"outputPath": "./output/a_更改装备图标.NPK",
 		"pathInNPKRecord": {
-			"test.img": "test.img",
 			"cloth_belt.img": "sprite/item/new_equipment/02_cloth/belt/cloth_belt.img",
 			"cloth_coat.img": "sprite/item/new_equipment/02_cloth/coat/cloth_coat.img",
 			"cloth_neck.img": "sprite/item/new_equipment/02_cloth/neck/cloth_neck.img",
@@ -36,7 +35,7 @@
 			"magicstone.img": "sprite/item/new_equipment/11_magicstone/magicstone.img",
 			"earrring.img": "sprite/item/new_equipment/13_earrring/earrring.img"
 		},
-		"colorSpaceType": "argb1555",
+		"colorSpaceType": "argb8888",
 		"usePinJsonFile": true
 	}
 ]

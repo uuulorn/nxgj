@@ -2,140 +2,140 @@
 	"inputPath": "../npk图片提取器/output",
 	"useChildDir": true,
 	"outputPath": "./output",
-	"placementMark": false,
+	"placementMark": true,
 	"placementMarkOther": false,
-	"originalAlpha": 0.8,
+	"originalAlpha": 0.5,
 	"placement": {
 		"cloth_belt.img": {
 			"text": "腰",
-			"color": "black"
+			"color": "white"
 		},
 		"cloth_coat.img": {
 			"text": "衫",
-			"color": "black"
+			"color": "white"
 		},
 		"cloth_neck.img": {
 			"text": "肩",
-			"color": "black"
+			"color": "white"
 		},
 		"cloth_pants.img": {
 			"text": "裤",
-			"color": "black"
+			"color": "white"
 		},
 		"cloth_shoes.img": {
 			"text": "鞋",
-			"color": "black"
+			"color": "white"
 		},
 		"harmor_belt.img": {
 			"text": "腰",
-			"color": "black"
+			"color": "white"
 		},
 		"harmor_coat.img": {
 			"text": "衫",
-			"color": "black"
+			"color": "white"
 		},
 		"harmor_neck.img": {
 			"text": "肩",
-			"color": "black"
+			"color": "white"
 		},
 		"harmor_pants.img": {
 			"text": "裤",
-			"color": "black"
+			"color": "white"
 		},
 		"harmor_shoes.img": {
 			"text": "鞋",
-			"color": "black"
+			"color": "white"
 		},
 		"larmor_belt.img": {
 			"text": "腰",
-			"color": "black"
+			"color": "white"
 		},
 		"larmor_coat.img": {
 			"text": "衫",
-			"color": "black"
+			"color": "white"
 		},
 		"larmor_neck.img": {
 			"text": "肩",
-			"color": "black"
+			"color": "white"
 		},
 		"larmor_pants.img": {
 			"text": "裤",
-			"color": "black"
+			"color": "white"
 		},
 		"larmor_shoes.img": {
 			"text": "鞋",
-			"color": "black"
+			"color": "white"
 		},
 		"leather_belt.img": {
 			"text": "腰",
-			"color": "black"
+			"color": "white"
 		},
 		"leather_coat.img": {
 			"text": "衫",
-			"color": "black"
+			"color": "white"
 		},
 		"leather_neck.img": {
 			"text": "肩",
-			"color": "black"
+			"color": "white"
 		},
 		"leather_pants.img": {
 			"text": "裤",
-			"color": "black"
+			"color": "white"
 		},
 		"leather_shoes.img": {
 			"text": "鞋",
-			"color": "black"
+			"color": "white"
 		},
 		"plate_belt.img": {
 			"text": "腰",
-			"color": "black"
+			"color": "white"
 		},
 		"plate_coat.img": {
 			"text": "衫",
-			"color": "black"
+			"color": "white"
 		},
 		"plate_neck.img": {
 			"text": "肩",
-			"color": "black"
+			"color": "white"
 		},
 		"plate_pants.img": {
 			"text": "裤",
-			"color": "black"
+			"color": "white"
 		},
 		"plate_shoes.img": {
 			"text": "鞋",
-			"color": "black"
+			"color": "white"
 		},
 		"bracelet.img": {
 			"text": "镯",
-			"color": "black"
+			"color": "white"
 		},
 		"necklace.img": {
 			"text": "项",
-			"color": "black"
+			"color": "white"
 		},
 		"ring.img": {
 			"text": "戒",
-			"color": "black"
+			"color": "white"
 		},
 		"support.img": {
 			"text": "左",
-			"color": "black"
+			"color": "white"
 		},
 		"magicstone.img": {
 			"text": "右",
-			"color": "black"
+			"color": "white"
 		},
 		"earrring.img": {
 			"text": "耳",
-			"color": "black"
+			"color": "white"
 		}
 	},
 	"tag": {
 		"cloth_belt.img": {
 			"88": {
 				"text": "火抗速度",
-				"color": "purple"
+				"color": "pink"
 			},
 			"89": {
 				"text": "晶体技攻",
@@ -149,21 +149,21 @@
 		"cloth_coat.img": {
 			"98": {
 				"text": "灼烧伤害",
-				"color": "blue"
+				"color": "orange"
 			},
 			"99": {
 				"text": "狂暴增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"100": {
 				"text": "附魔翻倍",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"cloth_neck.img": {
 			"90": {
 				"text": "灼烧伤害",
-				"color": "blue"
+				"color": "orange"
 			},
 			"91": {
 				"text": "MP增攻",
@@ -185,13 +185,13 @@
 			},
 			"96": {
 				"text": "附魔翻倍",
-				"color": "purple"
+				"color": "pink"
 			}
 		},
 		"cloth_shoes.img": {
 			"92": {
 				"text": "灼烧增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"93": {
 				"text": "卖血增攻",
@@ -205,7 +205,7 @@
 		"harmor_belt.img": {
 			"92": {
 				"text": "出血增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"95": {
 				"text": "MP增攻",
@@ -213,17 +213,17 @@
 			},
 			"96": {
 				"text": "冰强冰抗",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"harmor_coat.img": {
 			"100": {
 				"text": "苟命5s",
-				"color": "purple"
+				"color": "pink"
 			},
 			"103": {
 				"text": "CD回复",
-				"color": "blue"
+				"color": "orange"
 			},
 			"104": {
 				"text": "全属附魔",
@@ -233,15 +233,15 @@
 		"harmor_neck.img": {
 			"91": {
 				"text": "出血伤害",
-				"color": "blue"
+				"color": "orange"
 			},
 			"94": {
 				"text": "灵魂增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"95": {
 				"text": "火强火抗",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"harmor_pants.img": {
@@ -251,17 +251,17 @@
 			},
 			"98": {
 				"text": "伪装回避",
-				"color": "purple"
+				"color": "pink"
 			},
 			"99": {
 				"text": "光强光抗",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"harmor_shoes.img": {
 			"91": {
 				"text": "异常增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"94": {
 				"text": "MP核心",
@@ -269,91 +269,91 @@
 			},
 			"95": {
 				"text": "暗强暗抗",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"larmor_belt.img": {
 			"101": {
 				"text": "感电特效",
-				"color": "blue"
+				"color": "orange"
 			},
 			"102": {
 				"text": "中毒增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"103": {
 				"text": "异抗减伤",
-				"color": "purple"
+				"color": "pink"
 			},
 			"104": {
 				"text": "减伤堆血",
-				"color": "purple"
+				"color": "pink"
 			},
 			"105": {
 				"text": "感电伤害",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"larmor_coat.img": {
 			"114": {
 				"text": "灼烧特效",
-				"color": "blue"
+				"color": "orange"
 			},
 			"115": {
 				"text": "瞬移增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"116": {
 				"text": "护盾回复",
-				"color": "purple"
+				"color": "pink"
 			},
 			"117": {
 				"text": "瞬移属强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"118": {
 				"text": "变小回避",
-				"color": "purple"
+				"color": "pink"
 			}
 		},
 		"larmor_neck.img": {
 			"103": {
 				"text": "冰冻特效",
-				"color": "blue"
+				"color": "orange"
 			},
 			"104": {
 				"text": "中毒伤害",
-				"color": "blue"
+				"color": "orange"
 			},
 			"105": {
 				"text": "灼烧增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"106": {
 				"text": "减伤回复",
-				"color": "purple"
+				"color": "pink"
 			},
 			"107": {
 				"text": "CD减攻",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"larmor_pants.img": {
 			"107": {
 				"text": "灼烧增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"108": {
 				"text": "中毒伤害",
-				"color": "blue"
+				"color": "orange"
 			},
 			"109": {
 				"text": "保护回蓝",
-				"color": "purple"
+				"color": "pink"
 			},
 			"110": {
 				"text": "弹反技攻",
-				"color": "purple"
+				"color": "pink"
 			},
 			"111": {
 				"text": "暗强暗抗",
@@ -363,29 +363,29 @@
 		"larmor_shoes.img": {
 			"104": {
 				"text": "失明特效",
-				"color": "blue"
+				"color": "orange"
 			},
 			"105": {
 				"text": "中毒伤害",
-				"color": "blue"
+				"color": "orange"
 			},
 			"106": {
 				"text": "滞空暴击",
-				"color": "purple"
+				"color": "pink"
 			},
 			"107": {
 				"text": "手搓技攻",
 				"color": "red"
 			},
 			"108": {
-				"text": "装备回血",
-				"color": "purple"
+				"text": "感电CD",
+				"color": "orange"
 			}
 		},
 		"leather_belt.img": {
 			"88": {
 				"text": "光强特效",
-				"color": "blue"
+				"color": "orange"
 			},
 			"89": {
 				"text": "小技技攻",
@@ -393,7 +393,7 @@
 			},
 			"90": {
 				"text": "不动如山",
-				"color": "purple"
+				"color": "pink"
 			},
 			"91": {
 				"text": "手搓技攻",
@@ -403,15 +403,15 @@
 		"leather_coat.img": {
 			"98": {
 				"text": "搬砖指令",
-				"color": "purple"
+				"color": "pink"
 			},
 			"99": {
 				"text": "诅咒增伤",
-				"color": "blue"
+				"color": "orange"
 			},
 			"100": {
 				"text": "躺就完事",
-				"color": "purple"
+				"color": "pink"
 			},
 			"101": {
 				"text": "果汁气魄",
@@ -421,25 +421,25 @@
 		"leather_neck.img": {
 			"86": {
 				"text": "搬砖捡物",
-				"color": "purple"
+				"color": "pink"
 			},
 			"87": {
 				"text": "基础平A",
-				"color": "blue"
+				"color": "orange"
 			},
 			"88": {
 				"text": "蹲伏增伤",
-				"color": "blue"
+				"color": "orange"
 			},
 			"89": {
 				"text": "感电伤害",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"leather_pants.img": {
 			"91": {
 				"text": "搬砖范围",
-				"color": "purple"
+				"color": "pink"
 			},
 			"92": {
 				"text": "基础精通",
@@ -447,7 +447,7 @@
 			},
 			"93": {
 				"text": "后跳强化",
-				"color": "purple"
+				"color": "pink"
 			},
 			"94": {
 				"text": "光强光抗",
@@ -457,7 +457,7 @@
 		"leather_shoes.img": {
 			"92": {
 				"text": "冲击护罩",
-				"color": "purple"
+				"color": "pink"
 			},
 			"93": {
 				"text": "基础精通",
@@ -465,53 +465,53 @@
 			},
 			"94": {
 				"text": "蹲伏延长",
-				"color": "purple"
+				"color": "pink"
 			},
 			"95": {
 				"text": "感电增攻",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"plate_belt.img": {
 			"87": {
 				"text": "冲击护罩",
-				"color": "purple"
+				"color": "pink"
 			},
 			"88": {
-				"text": "基础精通",
-				"color": "red"
+				"text": "5N技攻",
+				"color": "orange"
 			},
 			"90": {
 				"text": "蹲伏延长",
-				"color": "purple"
+				"color": "pink"
 			},
 			"91": {
 				"text": "感电增攻",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"plate_coat.img": {
 			"96": {
 				"text": "变大回复",
-				"color": "purple"
+				"color": "pink"
 			},
 			"97": {
 				"text": "全属属强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"99": {
 				"text": "芜湖起飞",
-				"color": "purple"
+				"color": "pink"
 			},
 			"100": {
 				"text": "无敌速度",
-				"color": "purple"
+				"color": "pink"
 			}
 		},
 		"plate_neck.img": {
 			"88": {
 				"text": "石化伤害",
-				"color": "blue"
+				"color": "orange"
 			},
 			"89": {
 				"text": "卖血技攻",
@@ -519,21 +519,21 @@
 			},
 			"91": {
 				"text": "背刺异常",
-				"color": "purple"
+				"color": "pink"
 			},
 			"92": {
 				"text": "出血伤害",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"plate_pants.img": {
 			"91": {
 				"text": "卖血CD",
-				"color": "blue"
+				"color": "orange"
 			},
 			"92": {
 				"text": "回血省蓝",
-				"color": "purple"
+				"color": "pink"
 			},
 			"94": {
 				"text": "增伤霸体",
@@ -547,25 +547,25 @@
 		"plate_shoes.img": {
 			"90": {
 				"text": "石化增强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"91": {
 				"text": "蓝耗CD",
-				"color": "blue"
+				"color": "orange"
 			},
 			"93": {
 				"text": "回避速度",
-				"color": "purple"
+				"color": "pink"
 			},
 			"94": {
 				"text": "技等移速",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"bracelet.img": {
 			"274": {
 				"text": "灼烧核心",
-				"color": "blue"
+				"color": "orange"
 			},
 			"275": {
 				"text": "无色特化",
@@ -577,7 +577,7 @@
 			},
 			"278": {
 				"text": "紧急瞬移",
-				"color": "purple"
+				"color": "pink"
 			},
 			"279": {
 				"text": "小技平A",
@@ -585,23 +585,23 @@
 			},
 			"280": {
 				"text": "受伤缓化",
-				"color": "purple"
+				"color": "pink"
 			},
 			"281": {
 				"text": "感电核心",
-				"color": "blue"
+				"color": "orange"
 			},
 			"283": {
 				"text": "眩晕技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"284": {
 				"text": "中毒核心",
-				"color": "blue"
+				"color": "orange"
 			},
 			"285": {
 				"text": "异常同化",
-				"color": "blue"
+				"color": "orange"
 			},
 			"286": {
 				"text": "攻击强化",
@@ -609,23 +609,23 @@
 			},
 			"287": {
 				"text": "灼烧属强",
-				"color": "purple"
+				"color": "pink"
 			},
 			"288": {
 				"text": "出血核心",
-				"color": "blue"
+				"color": "orange"
 			},
 			"291": {
 				"text": "蓝耗CD",
-				"color": "blue"
+				"color": "orange"
 			},
 			"292": {
 				"text": "石化技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"293": {
 				"text": "果汁核心",
-				"color": "blue"
+				"color": "orange"
 			},
 			"295": {
 				"text": "破极兵刃",
@@ -633,17 +633,17 @@
 			},
 			"296": {
 				"text": "流星一条",
-				"color": "purple"
+				"color": "pink"
 			},
 			"298": {
 				"text": "技等属强",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"necklace.img": {
 			"281": {
 				"text": "灼烧火强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"282": {
 				"text": "卖血增伤",
@@ -655,7 +655,7 @@
 			},
 			"285": {
 				"text": "猛虎落地",
-				"color": "purple"
+				"color": "pink"
 			},
 			"286": {
 				"text": "近战特化",
@@ -663,19 +663,19 @@
 			},
 			"287": {
 				"text": "赖床不起",
-				"color": "purple"
+				"color": "pink"
 			},
 			"288": {
 				"text": "自击光强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"290": {
 				"text": "灼烧伤害",
-				"color": "purple"
+				"color": "pink"
 			},
 			"291": {
 				"text": "自击冰强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"292": {
 				"text": "破招技攻",
@@ -687,19 +687,19 @@
 			},
 			"294": {
 				"text": "自击暗强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"295": {
 				"text": "自击火强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"298": {
 				"text": "MP属强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"299": {
 				"text": "弱点技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"300": {
 				"text": "无视防御",
@@ -711,17 +711,17 @@
 			},
 			"303": {
 				"text": "加速回避",
-				"color": "purple"
+				"color": "pink"
 			},
 			"305": {
 				"text": "技等属强",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"ring.img": {
 			"320": {
 				"text": "灼烧技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"321": {
 				"text": "卖血增攻",
@@ -733,7 +733,7 @@
 			},
 			"324": {
 				"text": "分摊增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"325": {
 				"text": "黑白恍惚",
@@ -741,19 +741,19 @@
 			},
 			"326": {
 				"text": "吃药增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"327": {
 				"text": "感电技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"329": {
 				"text": "失明技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"330": {
 				"text": "异常增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"331": {
 				"text": "不破特化",
@@ -765,11 +765,11 @@
 			},
 			"333": {
 				"text": "卖血回复",
-				"color": "blue"
+				"color": "orange"
 			},
 			"334": {
 				"text": "出血伤害",
-				"color": "blue"
+				"color": "orange"
 			},
 			"337": {
 				"text": "耗蓝增攻",
@@ -777,7 +777,7 @@
 			},
 			"338": {
 				"text": "眩晕增攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"339": {
 				"text": "冰冻技攻",
@@ -785,21 +785,21 @@
 			},
 			"341": {
 				"text": "出血CD",
-				"color": "purple"
+				"color": "pink"
 			},
 			"342": {
 				"text": "冰冻技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"344": {
 				"text": "技等属强",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"support.img": {
 			"315": {
 				"text": "灼烧技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"316": {
 				"text": "卖血强化",
@@ -810,60 +810,60 @@
 				"color": "red"
 			},
 			"319": {
-				"text": "攻换CD",
-				"color": "blue"
+				"text": "加速特效",
+				"color": "orange"
 			},
 			"320": {
 				"text": "小技异常",
-				"color": "blue"
+				"color": "orange"
 			},
 			"321": {
 				"text": "睡眠增强",
-				"color": "purple"
+				"color": "pink"
 			},
 			"322": {
 				"text": "光抗光强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"324": {
 				"text": "冰冻技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"325": {
 				"text": "冰抗冰强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"326": {
 				"text": "芜湖起飞",
-				"color": "purple"
+				"color": "pink"
 			},
 			"327": {
 				"text": "空投舔包",
-				"color": "blue"
+				"color": "orange"
 			},
 			"328": {
 				"text": "暗抗暗强",
-				"color": "blue"
+				"color": "orange"
 			},
 			"329": {
 				"text": "火抗火强",
-				"color": "purple"
+				"color": "pink"
 			},
 			"332": {
-				"text": "高蓝维持",
-				"color": "purple"
+				"text": "高蓝增攻",
+				"color": "orange"
 			},
 			"333": {
 				"text": "无力强化",
-				"color": "blue"
+				"color": "orange"
 			},
 			"334": {
 				"text": "减伤加攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"336": {
 				"text": "二段跳跃",
-				"color": "purple"
+				"color": "pink"
 			},
 			"337": {
 				"text": "手搓特化",
@@ -871,13 +871,13 @@
 			},
 			"339": {
 				"text": "技等属强",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"magicstone.img": {
 			"299": {
 				"text": "被击转化",
-				"color": "purple"
+				"color": "pink"
 			},
 			"300": {
 				"text": "破招强化",
@@ -889,7 +889,7 @@
 			},
 			"303": {
 				"text": "异常抗性",
-				"color": "purple"
+				"color": "pink"
 			},
 			"304": {
 				"text": "小招特化",
@@ -897,35 +897,35 @@
 			},
 			"305": {
 				"text": "睡眠回血",
-				"color": "purple"
+				"color": "pink"
 			},
 			"306": {
 				"text": "被击转化",
-				"color": "purple"
+				"color": "pink"
 			},
 			"308": {
 				"text": "被击转化",
-				"color": "purple"
+				"color": "pink"
 			},
 			"309": {
 				"text": "被击转化",
-				"color": "purple"
+				"color": "pink"
 			},
 			"310": {
 				"text": "出血加速",
-				"color": "purple"
+				"color": "pink"
 			},
 			"311": {
 				"text": "近战强化",
-				"color": "blue"
+				"color": "orange"
 			},
 			"312": {
 				"text": "自爆加速",
-				"color": "purple"
+				"color": "pink"
 			},
 			"313": {
 				"text": "异常CD",
-				"color": "blue"
+				"color": "orange"
 			},
 			"316": {
 				"text": "MP强化",
@@ -933,11 +933,11 @@
 			},
 			"317": {
 				"text": "眩晕CD",
-				"color": "purple"
+				"color": "pink"
 			},
 			"318": {
 				"text": "耗蓝加速",
-				"color": "blue"
+				"color": "orange"
 			},
 			"320": {
 				"text": "宠物增伤",
@@ -945,17 +945,17 @@
 			},
 			"321": {
 				"text": "无色CD",
-				"color": "blue"
+				"color": "orange"
 			},
 			"323": {
 				"text": "技等属强",
-				"color": "blue"
+				"color": "orange"
 			}
 		},
 		"earrring.img": {
 			"97": {
 				"text": "雨露均沾",
-				"color": "purple"
+				"color": "pink"
 			},
 			"98": {
 				"text": "无色技攻",
@@ -967,7 +967,7 @@
 			},
 			"101": {
 				"text": "瞬时加速",
-				"color": "purple"
+				"color": "pink"
 			},
 			"102": {
 				"text": "小招特化",
@@ -975,27 +975,27 @@
 			},
 			"103": {
 				"text": "自冻回血",
-				"color": "purple"
+				"color": "pink"
 			},
 			"104": {
 				"text": "雨露均沾",
-				"color": "purple"
+				"color": "pink"
 			},
 			"106": {
 				"text": "雨露均沾",
-				"color": "purple"
+				"color": "pink"
 			},
 			"107": {
 				"text": "雨露均沾",
-				"color": "purple"
+				"color": "pink"
 			},
 			"108": {
 				"text": "出血技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"109": {
 				"text": "纯纯加速",
-				"color": "purple"
+				"color": "pink"
 			},
 			"110": {
 				"text": "大技特化",
@@ -1003,7 +1003,7 @@
 			},
 			"111": {
 				"text": "出血技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"114": {
 				"text": "MP技攻",
@@ -1011,23 +1011,23 @@
 			},
 			"115": {
 				"text": "石化技攻",
-				"color": "blue"
+				"color": "orange"
 			},
 			"116": {
 				"text": "MP节约",
-				"color": "purple"
+				"color": "pink"
 			},
 			"118": {
 				"text": "时快时慢",
-				"color": "purple"
+				"color": "pink"
 			},
 			"119": {
 				"text": "追击属强",
-				"color": "purple"
+				"color": "pink"
 			},
 			"121": {
 				"text": "反击眩晕",
-				"color": "purple"
+				"color": "pink"
 			}
 		}
 	}
