@@ -1,5 +1,6 @@
 {
-	"inputPath": "J:/npk实验场/blackcat.1.3/output/a_改装备图标.NPK",
+	"inputPath": "../npk图片提取器/output",
+	"useChildDir": true,
 	"outputPath": "./output",
 	"placementMark": false,
 	"placementMarkOther": false,

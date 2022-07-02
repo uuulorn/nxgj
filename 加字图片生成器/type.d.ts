@@ -12,5 +12,6 @@ export type MarkOption = {
     inputPath: string
     outputPath: string
     placementMark: boolean
-    placementMarkOther: boolean
+    placementMarkOther: boolean,
+    useChildDir: boolean
 }

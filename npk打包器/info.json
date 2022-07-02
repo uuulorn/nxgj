@@ -1,7 +1,7 @@
 [
 	{
-		"inputPath": "./input",
-		"outputPath": "./output/test.NPK",
+		"inputPath": "../加字图片生成器/output",
+		"outputPath": "./output/a_更改装备图标.NPK",
 		"pathInNPKRecord": {
 			"test.img": "test.img",
 			"cloth_belt.img": "sprite/item/new_equipment/02_cloth/belt/cloth_belt.img",

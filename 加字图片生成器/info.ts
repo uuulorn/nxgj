@@ -6,6 +6,7 @@ export const giOpt: MarkOption = JSON.parse(readFileSync(resolve(__dirname, 'inf
 
 /*
 export const giOpt: MarkOption = {
+    "useChildDir": true,//使用输入路径下以.NPK结尾的子文件夹
     placement: {//部位
         'cloth_belt.img': { text: '腰', color: 'black' }, //全等匹配子目录名 //text为单字
         'cloth_coat.img': { text: '衫', color: 'black' },

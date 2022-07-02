@@ -74,46 +74,57 @@ export async function run() {
     const flag1 = giOpt.placementMarkOther
     const r0 = /\.img$/i
     const r1 = /^\d+\.png$/i
-    const imgDirs = fs.readdirSync(pRes(__dirname, giOpt.inputPath), { withFileTypes: true })
-        .filter(x => x.isDirectory() && r0.test(x.name))
-    if (!imgDirs.length) {
-        throw new Error(`没有找到名字以.img结尾的文件夹!`)
+    const r2 = /\.npk$/i
+    const truthInputPaths: string[] = []
+    if (giOpt.useChildDir) {
+        for (const cd of fs.readdirSync(pRes(__dirname, giOpt.inputPath), { withFileTypes: true }).filter(x => x.isDirectory() && r2.test(x.name))) {
+            truthInputPaths.push(pRes(__dirname, giOpt.inputPath, cd.name))
+        }
+    } else {
+        truthInputPaths.push(giOpt.inputPath)
     }
-    for (const cdir of imgDirs) {
-        const u = giOpt.tag[cdir.name]
-        const v = giOpt.placement[cdir.name]
-        if (u) {
-            for (const img of fs.readdirSync(
-                pRes(__dirname, giOpt.inputPath, cdir.name), { withFileTypes: true }
-            )
-                .filter(x => x.isFile() && r1.test(x.name))
-            ) {
-                const index = img.name.slice(0, img.name.indexOf('.'))
-                const imgInfo = u[index]
-                let cv = canvas.createCanvas(28, 28)
-                const eim = await getImage(pRes(__dirname, giOpt.inputPath, cdir.name, img.name))
-                cv.getContext('2d').drawImage(eim, 0, 0)
-                if (imgInfo) {
-                    cv = await drawTag(cv, imgInfo.text, imgInfo.color, giOpt.tagFillRectColor)
-                }
-                if (v) {
+    for (const truthInputPath of truthInputPaths) {
+        const imgDirs = fs.readdirSync(pRes(__dirname, truthInputPath), { withFileTypes: true })
+            .filter(x => x.isDirectory() && r0.test(x.name))
+        if (!imgDirs.length) {
+            throw new Error(`没有找到名字以.img结尾的文件夹!`)
+        }
+        for (const cdir of imgDirs) {
+            const u = giOpt.tag[cdir.name]
+            const v = giOpt.placement[cdir.name]
+            if (u) {
+                for (const img of fs.readdirSync(
+                    pRes(__dirname, truthInputPath, cdir.name), { withFileTypes: true }
+                )
+                    .filter(x => x.isFile() && r1.test(x.name))
+                ) {
+                    const index = img.name.slice(0, img.name.indexOf('.'))
+                    const imgInfo = u[index]
+                    let cv = canvas.createCanvas(28, 28)
+                    const eim = await getImage(pRes(__dirname, truthInputPath, cdir.name, img.name))
+                    cv.getContext('2d').drawImage(eim, 0, 0)
                     if (imgInfo) {
-                        if (flag0) {
-                            cv = await drawPlacement(cv, v.text, v.color)
-                        }
-                    } else {
-                        if (flag1) {
-                            alphaMultiply(cv, 0.8)
-                            cv = await drawPlacement(cv, v.text, v.color)
+                        cv = await drawTag(cv, imgInfo.text, imgInfo.color, giOpt.tagFillRectColor)
+                    }
+                    if (v) {
+                        if (imgInfo) {
+                            if (flag0) {
+                                cv = await drawPlacement(cv, v.text, v.color)
+                            }
+                        } else {
+                            if (flag1) {
+                                alphaMultiply(cv, 0.8)
+                                cv = await drawPlacement(cv, v.text, v.color)
+                            }
                         }
                     }
+                    const buf = await canvasToBuffer(cv)
+                    const od = pRes(__dirname, giOpt.outputPath, cdir.name)
+                    if (!fs.existsSync(od)) {
+                        fs.mkdirSync(od, { recursive: true })
+                    }
+                    await fs.promises.writeFile(pRes(__dirname, od, img.name), buf)
                 }
-                const buf = await canvasToBuffer(cv)
-                const od = pRes(__dirname, giOpt.outputPath, cdir.name)
-                if (!fs.existsSync(od)) {
-                    fs.mkdirSync(od, { recursive: true })
-                }
-                await fs.promises.writeFile(pRes(__dirname, od, img.name), buf)
             }
         }
     }
