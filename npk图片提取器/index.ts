@@ -211,7 +211,7 @@ function bufferXor(a: Buffer, b: Buffer) {
     return r
 }
 
-async function run() {
+export async function run() {
     if (
         pRes(__dirname, enOpt.inputPath).includes(pRes(__dirname, enOpt.outputPath)) ||
         pRes(__dirname, enOpt.outputPath).includes(pRes(__dirname, enOpt.inputPath))
