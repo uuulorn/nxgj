@@ -6,7 +6,12 @@ export const giOpt: MarkOption = JSON.parse(readFileSync(resolve(__dirname, 'inf
 
 /*
 export const giOpt: MarkOption = {
-    "useChildDir": true,//使用输入路径下以.NPK结尾的子文件夹
+    "useChildDir": true,//指定是否使用输入路径下以.NPK结尾的子文件夹
+    inputPath: 'J:/npk实验场/blackcat.1.3/output/a_改装备图标.NPK',//输入目录路径
+    outputPath: './output',//输出目录路径
+    //tagFillRectColor: 'white',//非空则在添加标签时,先填充一次值指定的颜色
+    placementMark: false,//指定是否为标签列表内的图片添加部位名
+    placementMarkOther: false,//指定是否为标签列表外的图片添加部位名
     placement: {//部位
         'cloth_belt.img': { text: '腰', color: 'black' }, //全等匹配子目录名 //text为单字
         'cloth_coat.img': { text: '衫', color: 'black' },
@@ -312,10 +317,5 @@ export const giOpt: MarkOption = {
             119: { text: '追击属强', color: 'purple' },
             121: { text: '反击眩晕', color: 'purple' },
         },
-    },
-    inputPath: 'J:/npk实验场/blackcat.1.3/output/a_改装备图标.NPK',//输入目录路径
-    outputPath: './output',//输出目录路径
-    //tagFillRectColor: 'white',//非空则在添加标签时,先填充一次值指定的颜色
-    placementMark: false,//指定是否为标签列表内的图片添加部位名
-    placementMarkOther: false//指定是否为标签列表外的图片添加部位名
+    }
 }*/
