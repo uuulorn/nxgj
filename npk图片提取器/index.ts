@@ -113,7 +113,9 @@ function getPicIIFs(imgBuffer: Buffer): PicInnerInfo[] {
             }
         }
             break
-        default: throw new Error(`暂时只支持IMGV2的解包`)
+        default:
+            console.log(`暂时只支持IMGV2的解包`)
+            break
     }
     return result
 }
