@@ -3,6 +3,9 @@ import canvas from 'canvas'
 import { resolve as pRes } from 'path'
 import { giOpt } from './info'
 
+const PIC_WIDTH = 28
+const PIC_HEIGHT = 28
+
 async function drawTag(cv: canvas.Canvas, text: string, color: string, fillRectColor?: string): Promise<canvas.Canvas> {
     if (text.length !== 4) {
         throw new Error(`文本长度应该为4.错误文本:#${text}#`)
@@ -10,9 +13,11 @@ async function drawTag(cv: canvas.Canvas, text: string, color: string, fillRectC
     const ctx = cv.getContext('2d')
     ctx.save()
     if (fillRectColor) {
-        ctx.clearRect(0, 0, 28, 28)
+        ctx.clearRect(0, 0, PIC_WIDTH, PIC_HEIGHT)
         ctx.fillStyle = fillRectColor
-        ctx.fillRect(0, 0, 28, 28)
+        ctx.fillRect(0, 0, PIC_WIDTH, PIC_HEIGHT)
+    } else if (giOpt.originalAlpha < 1) {
+        alphaMultiply(cv, giOpt.originalAlpha)
     }
     ctx.fillStyle = color
     ctx.font = `bolder bolder 12px Arial,sans-serif`
@@ -29,11 +34,11 @@ async function drawPlacement(cv0: canvas.Canvas, text: string, color: string): P
     if (text.length !== 1) {
         throw new Error(`文本长度应该为1.错误文本:#${text}#`)
     }
-    const cv1 = canvas.createCanvas(28, 28)
+    const cv1 = canvas.createCanvas(PIC_WIDTH, PIC_HEIGHT)
     const ctx1 = cv1.getContext('2d')
     ctx1.save()
     ctx1.fillStyle = '#000'
-    ctx1.fillRect(0, 0, 28, 28)
+    ctx1.fillRect(0, 0, PIC_WIDTH, PIC_HEIGHT)
     ctx1.drawImage(cv0, 0, 0)
     ctx1.fillStyle = color
     ctx1.font = 'bolder bolder 16px Arial,sans-serif'
@@ -100,7 +105,7 @@ export async function run() {
                 ) {
                     const index = img.name.slice(0, img.name.indexOf('.'))
                     const imgInfo = u[index]
-                    let cv = canvas.createCanvas(28, 28)
+                    let cv = canvas.createCanvas(PIC_WIDTH, PIC_HEIGHT)
                     const eim = await getImage(pRes(__dirname, truthInputPath, cdir.name, img.name))
                     cv.getContext('2d').drawImage(eim, 0, 0)
                     if (imgInfo) {
@@ -131,9 +136,10 @@ export async function run() {
 }
 
 function alphaMultiply(cv: canvas.Canvas, n: number): void {
-    const dt = cv.getContext('2d').getImageData(0, 0, 28, 28).data
+    n = Math.min(Math.max(n, 0), 1)
+    const dt = cv.getContext('2d').getImageData(0, 0, PIC_WIDTH, PIC_HEIGHT).data
     for (let i = 3; i < dt.length; i += 4) {
         dt[i] *= n
     }
-    cv.getContext('2d').putImageData(canvas.createImageData(dt, 28, 28), 0, 0)
+    cv.getContext('2d').putImageData(canvas.createImageData(dt, PIC_WIDTH, PIC_HEIGHT), 0, 0)
 }

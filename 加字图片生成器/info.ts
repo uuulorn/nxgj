@@ -6,7 +6,8 @@ export const giOpt: MarkOption = JSON.parse(readFileSync(resolve(__dirname, 'inf
 
 /*
 export const giOpt: MarkOption = {
-    "useChildDir": true,//指定是否使用输入路径下以.NPK结尾的子文件夹
+    originalAlpha: 0.8,//指定原图表透明度,仅在tagFillRectColor为空,且该值小于1时适用
+    useChildDir: true,//指定是否使用输入路径下以.NPK结尾的子文件夹
     inputPath: 'J:/npk实验场/blackcat.1.3/output/a_改装备图标.NPK',//输入目录路径
     outputPath: './output',//输出目录路径
     //tagFillRectColor: 'white',//非空则在添加标签时,先填充一次值指定的颜色

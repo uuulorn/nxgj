@@ -14,4 +14,5 @@ export type MarkOption = {
     placementMark: boolean
     placementMarkOther: boolean,
     useChildDir: boolean
+    originalAlpha: number
 }

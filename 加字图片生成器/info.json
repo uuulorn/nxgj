@@ -4,6 +4,7 @@
 	"outputPath": "./output",
 	"placementMark": false,
 	"placementMarkOther": false,
+	"originalAlpha": 0.8,
 	"placement": {
 		"cloth_belt.img": {
 			"text": "腰",
