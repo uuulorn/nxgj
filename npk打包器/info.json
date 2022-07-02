@@ -36,6 +36,7 @@
 			"magicstone.img": "sprite/item/new_equipment/11_magicstone/magicstone.img",
 			"earrring.img": "sprite/item/new_equipment/13_earrring/earrring.img"
 		},
-		"colorSpaceType": "argb1555"
+		"colorSpaceType": "argb1555",
+		"usePinJsonFile": true
 	}
 ]

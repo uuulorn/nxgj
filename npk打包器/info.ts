@@ -44,5 +44,6 @@ export const pnOpt_sample: PackNPKOption[] = [//样本
             'earrring.img': 'sprite/item/new_equipment/13_earrring/earrring.img',
         },//img文件名对应的img在npk内的路径
         colorSpaceType: 'argb1555' //颜色类型
+        usePinJsonFile:true
     }
 ]*/
