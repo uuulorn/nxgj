@@ -138,7 +138,7 @@
 				"color": "pink"
 			},
 			"89": {
-				"text": "晶体技攻",
+				"text": "无色技攻",
 				"color": "red"
 			},
 			"90": {
@@ -222,7 +222,7 @@
 				"color": "pink"
 			},
 			"103": {
-				"text": "CD回复",
+				"text": "冷却回复",
 				"color": "orange"
 			},
 			"104": {
@@ -334,7 +334,7 @@
 				"color": "pink"
 			},
 			"107": {
-				"text": "CD减攻",
+				"text": "冷却减攻",
 				"color": "orange"
 			}
 		},
@@ -378,26 +378,26 @@
 				"color": "red"
 			},
 			"108": {
-				"text": "感电CD",
+				"text": "感电冷却",
 				"color": "orange"
 			}
 		},
 		"leather_belt.img": {
 			"88": {
-				"text": "光强特效",
-				"color": "orange"
+				"text": "不动如山",
+				"color": "pink"
 			},
 			"89": {
 				"text": "小技技攻",
 				"color": "red"
 			},
 			"90": {
-				"text": "不动如山",
+				"text": "装备回血",
 				"color": "pink"
 			},
 			"91": {
-				"text": "手搓技攻",
-				"color": "red"
+				"text": "光强特效",
+				"color": "orange"
 			}
 		},
 		"leather_coat.img": {
@@ -406,8 +406,8 @@
 				"color": "pink"
 			},
 			"99": {
-				"text": "诅咒增伤",
-				"color": "orange"
+				"text": "诅咒冷却",
+				"color": "red"
 			},
 			"100": {
 				"text": "躺就完事",
@@ -474,7 +474,7 @@
 		},
 		"plate_belt.img": {
 			"87": {
-				"text": "冲击护罩",
+				"text": "石化增伤",
 				"color": "pink"
 			},
 			"88": {
@@ -482,7 +482,7 @@
 				"color": "orange"
 			},
 			"90": {
-				"text": "蹲伏延长",
+				"text": "召唤高达",
 				"color": "pink"
 			},
 			"91": {
@@ -528,7 +528,7 @@
 		},
 		"plate_pants.img": {
 			"91": {
-				"text": "卖血CD",
+				"text": "卖血冷却",
 				"color": "orange"
 			},
 			"92": {
@@ -550,7 +550,7 @@
 				"color": "orange"
 			},
 			"91": {
-				"text": "蓝耗CD",
+				"text": "蓝耗冷却",
 				"color": "orange"
 			},
 			"93": {
@@ -616,7 +616,7 @@
 				"color": "orange"
 			},
 			"291": {
-				"text": "蓝耗CD",
+				"text": "蓝耗冷却",
 				"color": "orange"
 			},
 			"292": {
@@ -760,7 +760,7 @@
 				"color": "red"
 			},
 			"332": {
-				"text": "CD重置",
+				"text": "冷却重置",
 				"color": "red"
 			},
 			"333": {
@@ -784,7 +784,7 @@
 				"color": "red"
 			},
 			"341": {
-				"text": "出血CD",
+				"text": "出血冷却",
 				"color": "pink"
 			},
 			"342": {
@@ -924,7 +924,7 @@
 				"color": "pink"
 			},
 			"313": {
-				"text": "异常CD",
+				"text": "异常冷却",
 				"color": "orange"
 			},
 			"316": {
@@ -932,7 +932,7 @@
 				"color": "red"
 			},
 			"317": {
-				"text": "眩晕CD",
+				"text": "眩晕冷却",
 				"color": "pink"
 			},
 			"318": {
@@ -944,7 +944,7 @@
 				"color": "red"
 			},
 			"321": {
-				"text": "无色CD",
+				"text": "无色冷却",
 				"color": "orange"
 			},
 			"323": {
@@ -970,7 +970,7 @@
 				"color": "pink"
 			},
 			"102": {
-				"text": "小招特化",
+				"text": "非觉技攻",
 				"color": "red"
 			},
 			"103": {
