@@ -223,7 +223,7 @@
 			},
 			"103": {
 				"text": "冷却回复",
-				"color": "orange"
+				"color": "red"
 			},
 			"104": {
 				"text": "全属附魔",
@@ -486,8 +486,8 @@
 				"color": "pink"
 			},
 			"91": {
-				"text": "感电增攻",
-				"color": "orange"
+				"text": "手搓技攻",
+				"color": "red"
 			}
 		},
 		"plate_coat.img": {
